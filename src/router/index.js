@@ -6,12 +6,6 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
-/* Router Modules */
-import componentsRouter from './modules/components'
-import chartsRouter from './modules/charts'
-import tableRouter from './modules/table'
-import nestedRouter from './modules/nested'
-
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -108,19 +102,7 @@ export const constantRoutes = [
   //     }
   //   ]
   // },
-  {
-    path: '/icon',
-    component: Layout,
-    redirect: '/icon',
-    children: [
-      {
-        path: 'icon',
-        component: () => import('@/views/icons/index'),
-        name: 'Icon',
-        meta: { title: 'Icon', icon: 'search' }
-      }
-    ]
-  },
+
   {
     path: '/profile',
     component: Layout,
@@ -159,13 +141,13 @@ export const asyncRoutes = [
     children: [
       {
         path: 'organization',
-        component: () => import('@/views/excel/export-excel'),
+        component: () => import('@/views/administration/organization'),
         name: 'Organization units',
-        meta: { title: 'Organization Units', icon: 'tree' }
+        meta: { title: 'OrganizationUnits', icon: 'tree' }
       },
       {
         path: 'role',
-        component: () => import('@/views/excel/select-excel'),
+        component: () => import('@/views/administration/role'),
         name: 'Roles',
         meta: { title: 'Roles', icon: 'international' }
       },
@@ -173,13 +155,37 @@ export const asyncRoutes = [
         path: 'user-account',
         component: () => import('@/views/administration/user-account'),
         name: 'User Account',
-        meta: { title: 'User Account', icon: 'user' }
+        meta: { title: 'UserAccount', icon: 'user' }
       },
       {
         path: 'change-password',
-        component: () => import('@/views/excel/upload-excel'),
+        component: () => import('@/views/administration/change-password'),
         name: 'Change Password',
-        meta: { title: 'Change Password', icon: 'password' }
+        meta: { title: 'ChangePassword', icon: 'password' }
+      }
+    ]
+  },
+  {
+    path: '/booking',
+    component: Layout,
+    redirect: '/booking/manage-order',
+    name: 'Booking',
+    meta: {
+      title: 'Booking',
+      icon: 'education'
+    },
+    children: [
+      {
+        path: 'manage-order',
+        component: () => import('@/views/booking/manage-order'),
+        name: 'Manage Order',
+        meta: { title: 'ManageOrder', icon: 'form' }
+      },
+      {
+        path: 'looking-order',
+        component: () => import('@/views/booking/looking-order'),
+        name: 'Looking Order',
+        meta: { title: 'LookingOrder', icon: 'search' }
       }
     ]
   },
