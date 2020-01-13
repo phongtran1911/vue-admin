@@ -9,6 +9,9 @@ import './styles/element-variables.scss'
 
 import '@/styles/index.scss' // global css
 
+import 'devextreme/dist/css/dx.common.css' // devextreme css
+import 'devextreme/dist/css/dx.light.css' // devextreme css
+
 import App from './App'
 import store from './store'
 import router from './router'
