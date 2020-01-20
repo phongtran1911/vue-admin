@@ -3,7 +3,7 @@
     <div class="filter-container">
       <el-form ref="loginForm" class="login-form" label-position="left">
 
-        <el-form-item prop="passwordOld">
+        <el-form-item prop="passwordOld" style="width:50%">
           <el-input
             :key="passwordType"
             ref="passwordOld"
@@ -14,7 +14,7 @@
             class="filter-item"
           />
         </el-form-item>
-        <el-form-item prop="passwordNew">
+        <el-form-item prop="passwordNew" style="width:50%">
           <el-input
             :key="passwordType"
             ref="passwordNew"
@@ -25,7 +25,7 @@
             class="filter-item"
           />
         </el-form-item>
-        <el-form-item prop="passwordRe">
+        <el-form-item prop="passwordRe" style="width:50%">
           <el-input
             :key="passwordType"
             ref="passwordRe"

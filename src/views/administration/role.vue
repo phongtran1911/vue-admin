@@ -56,32 +56,6 @@
         <el-button type="primary" @click="confirmRole">Confirm</el-button>
       </div>
     </el-dialog>
-    <DxDataGrid
-      :show-borders="true"
-      :data-source="rolesList"
-      :remote-operations="true"
-    >
-      <DxEditing
-        :allow-adding="true"
-        :allow-updating="true"
-        :allow-deleting="true"
-        mode="popup"
-      />
-      <DxColumn
-        :width="100"
-        data-field="key"
-        caption="Role Key"
-      />
-      <DxColumn
-        :width="100"
-        data-field="name"
-        data-type="Role Name"
-      />
-      <DxColumn
-        data-field="description"
-        caption="Description"
-      />
-    </DxDataGrid>
   </div>
 </template>
 
@@ -89,11 +63,6 @@
 import path from 'path'
 import { deepClone } from '@/utils'
 import { getRoutes, getRoles, addRole, deleteRole, updateRole } from '@/api/role'
-import {
-  DxDataGrid,
-  DxColumn,
-  DxEditing
-} from 'devextreme-vue/data-grid'
 const defaultRole = {
   key: '',
   name: '',
@@ -102,11 +71,6 @@ const defaultRole = {
 }
 
 export default {
-  components: {
-    DxDataGrid,
-    DxColumn,
-    DxEditing
-  },
   data() {
     return {
       role: Object.assign({}, defaultRole),
