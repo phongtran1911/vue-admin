@@ -125,10 +125,6 @@ export const constantRoutes = [
  */
 export const asyncRoutes = [
   /** when your routing map is too long, you can split it into small modules **/
-  // componentsRouter,
-  // chartsRouter,
-  // nestedRouter,
-  // tableRouter,
   {
     path: '/administration',
     component: Layout,
@@ -186,6 +182,30 @@ export const asyncRoutes = [
         component: () => import('@/views/booking/looking-order'),
         name: 'Looking Order',
         meta: { title: 'LookingOrder', icon: 'search' }
+      }
+    ]
+  },
+  {
+    path: '/category',
+    component: Layout,
+    redirect: '/category/province',
+    name: 'Category',
+    meta: {
+      title: 'Category',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: 'province',
+        component: () => import('@/views/category/province'),
+        name: 'Province',
+        meta: { title: 'Province', icon: 'international' }
+      },
+      {
+        path: 'district',
+        component: () => import('@/views/category/district'),
+        name: 'District',
+        meta: { title: 'District', icon: 'money' }
       }
     ]
   },
