@@ -139,25 +139,25 @@ export const asyncRoutes = [
         path: 'organization',
         component: () => import('@/views/administration/organization'),
         name: 'Organization units',
-        meta: { title: 'OrganizationUnits', icon: 'tree' }
+        meta: { title: 'OrganizationUnits' }
       },
       {
         path: 'role',
         component: () => import('@/views/administration/role'),
         name: 'Roles',
-        meta: { title: 'Roles', icon: 'international' }
+        meta: { title: 'Roles' }
       },
       {
         path: 'user-account',
         component: () => import('@/views/administration/user-account'),
         name: 'User Account',
-        meta: { title: 'UserAccount', icon: 'user' }
+        meta: { title: 'UserAccount' }
       },
       {
         path: 'change-password',
         component: () => import('@/views/administration/change-password'),
         name: 'Change Password',
-        meta: { title: 'ChangePassword', icon: 'password' }
+        meta: { title: 'ChangePassword' }
       }
     ]
   },
@@ -175,13 +175,13 @@ export const asyncRoutes = [
         path: 'manage-order',
         component: () => import('@/views/booking/manage-order'),
         name: 'Manage Order',
-        meta: { title: 'ManageOrder', icon: 'form' }
+        meta: { title: 'ManageOrder' }
       },
       {
         path: 'looking-order',
         component: () => import('@/views/booking/looking-order'),
         name: 'Looking Order',
-        meta: { title: 'LookingOrder', icon: 'search' }
+        meta: { title: 'LookingOrder' }
       }
     ]
   },
@@ -196,16 +196,22 @@ export const asyncRoutes = [
     },
     children: [
       {
+        path: 'country',
+        component: () => import('@/views/category/country'),
+        name: 'Country',
+        meta: { title: 'Country' }
+      },
+      {
         path: 'province',
         component: () => import('@/views/category/province'),
         name: 'Province',
-        meta: { title: 'Province', icon: 'international' }
+        meta: { title: 'Province' }
       },
       {
         path: 'district',
         component: () => import('@/views/category/district'),
         name: 'District',
-        meta: { title: 'District', icon: 'money' }
+        meta: { title: 'District' }
       }
     ]
   },

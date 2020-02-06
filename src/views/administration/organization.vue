@@ -9,65 +9,16 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <el-input placeholder="Title" style="width: 40%;" class="filter-item" />
-          <el-button v-waves class="filter-item" type="primary" icon="el-icon-search">
-            Search
-          </el-button>
+          <el-input v-model="filterText" placeholder="Filter keyword" style="width: 500px; margin-bottom:30px;" class="filter-item" />
 
-          <el-table :data="rolesList" style="width: 100%;margin-top:30px;" border>
-            <el-table-column align="center" label="Role Key" width="100">
-              <template slot-scope="scope">
-                {{ scope.row.key }}
-              </template>
-            </el-table-column>
-            <el-table-column align="center" label="Role Name" width="100">
-              <template slot-scope="scope">
-                {{ scope.row.name }}
-              </template>
-            </el-table-column>
-            <el-table-column align="header-center" label="Description">
-              <template slot-scope="scope">
-                {{ scope.row.description }}
-              </template>
-            </el-table-column>
-            <el-table-column align="center" label="Operations">
-              <template slot-scope="scope">
-                <el-button type="primary" size="small" @click="handleEdit(scope)">Edit</el-button>
-                <el-button type="danger" size="small" @click="handleDelete(scope)">Delete</el-button>
-              </template>
-            </el-table-column>
-          </el-table>
-
-          <el-dialog :visible.sync="dialogVisible" :title="dialogType==='edit'?'Edit Role':'New Role'">
-            <el-form :model="role" label-width="80px" label-position="left">
-              <el-form-item label="Name">
-                <el-input v-model="role.name" placeholder="Role Name" />
-              </el-form-item>
-              <el-form-item label="Desc">
-                <el-input
-                  v-model="role.description"
-                  :autosize="{ minRows: 2, maxRows: 4}"
-                  type="textarea"
-                  placeholder="Role Description"
-                />
-              </el-form-item>
-              <el-form-item label="Menus">
-                <el-tree
-                  ref="tree"
-                  :check-strictly="checkStrictly"
-                  :data="routesData"
-                  :props="defaultProps"
-                  show-checkbox
-                  node-key="path"
-                  class="permission-tree"
-                />
-              </el-form-item>
-            </el-form>
-            <div style="text-align:right;">
-              <el-button type="danger" @click="dialogVisible=false">Cancel</el-button>
-              <el-button type="primary" @click="confirmRole">Confirm</el-button>
-            </div>
-          </el-dialog>
+          <el-tree
+            ref="tree2"
+            :data="data2"
+            :props="defaultProps"
+            :filter-node-method="filterNode"
+            class="filter-tree"
+            default-expand-all
+          />
         </div>
         <!-- /.box-body -->
       </div>
@@ -171,8 +122,44 @@ export default {
       checkStrictly: false,
       defaultProps: {
         children: 'children',
-        label: 'title'
-      }
+        label: 'label'
+      },
+      filterText: '',
+      data2: [{
+        id: 1,
+        label: 'Selling',
+        children: [{
+          id: 4,
+          label: 'Sales',
+          children: [{
+            id: 9,
+            label: 'Customer Relations'
+          }, {
+            id: 10,
+            label: 'Makerting'
+          }]
+        }]
+      }, {
+        id: 2,
+        label: 'Supporting',
+        children: [{
+          id: 5,
+          label: 'Human Resources'
+        }, {
+          id: 6,
+          label: 'Buying'
+        }]
+      }, {
+        id: 3,
+        label: 'Producing',
+        children: [{
+          id: 7,
+          label: 'Quality Management'
+        }, {
+          id: 8,
+          label: 'Research & Development'
+        }]
+      }]
     }
   },
   computed: {
