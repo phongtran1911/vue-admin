@@ -182,6 +182,18 @@ export const asyncRoutes = [
         component: () => import('@/views/booking/looking-order'),
         name: 'Looking Order',
         meta: { title: 'LookingOrder' }
+      },
+      {
+        path: 'manage-receive',
+        component: () => import('@/views/booking/manage-receive'),
+        name: 'Manage Receive Address',
+        meta: { title: 'ManageReceive' }
+      },
+      {
+        path: 'manage-delivery',
+        component: () => import('@/views/booking/manage-delivery'),
+        name: 'Manage Delivery Address',
+        meta: { title: 'ManageDelivery' }
       }
     ]
   },
